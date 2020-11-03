@@ -10,7 +10,7 @@ import com.example.movieapp.R
 import com.example.movieapp.network.AppConstant
 import com.example.movieapp.network.model.Movie
 
-class MovieViewHolder(container: ViewGroup) : RecyclerView.ViewHolder(
+class MovieListViewHolder(container: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(container.context).inflate
         (
         R.layout.row_movie_item, container, false
