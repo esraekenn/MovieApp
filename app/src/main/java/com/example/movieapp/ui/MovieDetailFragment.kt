@@ -5,14 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.example.movieapp.R
+import com.example.movieapp.databinding.FragmentMovieDetailBinding
+import com.example.movieapp.network.AppConstant
+import com.example.movieapp.network.model.MovieResponse
+import retrofit2.Response
 
-class MovieDetailFragment : Fragment() {
+class MovieDetailFragment(val movieResponse: Response<MovieResponse>, val position: Int) :
+    Fragment() {
+    private lateinit var binding: FragmentMovieDetailBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_movie_detail, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_movie_detail, container, false
+        )
+        return binding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        requestToTheService()
+    }
+
+    private fun requestToTheService() {
+        val position = position
+        val movieDetailList = movieResponse.body()!!.results[position]
+        binding.txtMovieTitle.text = movieDetailList.title
+        binding.txtMovieDescription.text = movieDetailList.overview
+        Glide.with(this)
+            .load(AppConstant.MOVIE_IMAGE_URL + movieDetailList.posterPath)
+            .into(binding.imgMovieDetail)
+    }
 }
