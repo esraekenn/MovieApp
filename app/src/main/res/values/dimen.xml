@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="movieTextViewSize">20sp</dimen>
+    <dimen name="movieDetailTitleTextViewSize">30sp</dimen>
+    <dimen name="rowLayoutWidth">200dp</dimen>
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="movieImageSize">400dp</dimen>
+    <dimen name="cardViewRadius">8dp</dimen>
+    <dimen name="margin4dp">4dp</dimen>
+</resources>

@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.MovieDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin8dp"
+        tools:context=".ui.MovieDetailFragment">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</FrameLayout>
+            <ImageView
+                android:id="@+id/imgMovieDetail"
+                android:layout_width="@dimen/movieImageSize"
+                android:layout_height="@dimen/movieImageSize"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/txtMovieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin4dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/movieDetailTitleTextViewSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtMovieDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/movieTextViewSize" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
