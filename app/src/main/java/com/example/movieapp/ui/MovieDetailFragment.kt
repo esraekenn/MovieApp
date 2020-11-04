@@ -10,10 +10,9 @@ import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentMovieDetailBinding
 import com.example.movieapp.network.AppConstant
-import com.example.movieapp.network.model.MovieResponse
-import retrofit2.Response
+import com.example.movieapp.network.model.Movie
 
-class MovieDetailFragment(val movieResponse: Response<MovieResponse>, val position: Int) :
+class MovieDetailFragment(val movieResponse: List<Movie>, val position: Int) :
     Fragment() {
     private lateinit var binding: FragmentMovieDetailBinding
     override fun onCreateView(
@@ -34,7 +33,7 @@ class MovieDetailFragment(val movieResponse: Response<MovieResponse>, val positi
 
     private fun requestToTheService() {
         val position = position
-        val movieDetailList = movieResponse.body()!!.results[position]
+        val movieDetailList = movieResponse[position]
         binding.txtMovieTitle.text = movieDetailList.title
         binding.txtMovieDescription.text = movieDetailList.overview
         Glide.with(this)

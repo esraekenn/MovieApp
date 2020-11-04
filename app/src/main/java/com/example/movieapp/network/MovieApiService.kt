@@ -5,6 +5,7 @@ import com.example.movieapp.network.model.SearchResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 interface MovieApiService {
     @GET("movie/popular")
