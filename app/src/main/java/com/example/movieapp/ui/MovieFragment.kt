@@ -96,7 +96,7 @@ class MovieFragment : Fragment(), CoroutineScope {
         binding.recyclerView.adapter = MovieListAdapter(movieList) { movie: Movie, position: Int ->
             val movieDetailFragment = MovieDetailFragment(movieList, position)
             fragmentManager?.beginTransaction()
-                ?.replace(R.id.fragment, movieDetailFragment)?.commit()
+                ?.replace(R.id.fragment, movieDetailFragment)?.addToBackStack(null)?.commit()
         }
     }
 
